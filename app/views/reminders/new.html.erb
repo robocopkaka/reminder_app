@@ -1,0 +1,5 @@
+<%= form_with(model: @reminder) do |form| %>
+  <%= form.select_recurring :day %>
+
+  <%= form.submit "Create reminder" %>
+<% end %>
