@@ -1,0 +1,59 @@
+#add-reminders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111118;
+  width: 100vw;
+
+  #reminders-form {
+    background-color: #FFFFFF;
+    border-radius: px-to-rem(8px);
+    padding: px-to-rem(20px) 0;
+    max-height: 90vh;
+    height: auto;
+    width: 40vw;
+
+    #add-reminders-header {
+      text-align: center;
+      font-weight: bold;
+      font-size: px-to-rem(25px);
+      padding-bottom: px-to-rem(15px);
+    }
+
+    label {
+      float: left;
+      font-weight: 500;
+      padding-right: px-to-rem(20px);
+    }
+
+    .field {
+      padding: 0 px-to-rem(20px) px-to-rem(10px) px-to-rem(20px);
+
+      #time {
+        width: 20vw;
+      }
+    }
+
+    .submit-field {
+      padding: px-to-rem(20px) px-to-rem(20px) 0 px-to-rem(20px);
+      .btn {
+        background-color: #4A2545;
+        color: #FFFFFF;
+        border-radius: 8px;
+      }
+    }
+
+    #error_explanation {
+      h2 {
+        font-size: px-to-rem(15px);
+        font-weight: bold;
+      }
+
+      ul {
+        font-size: px-to-rem(15px);
+        color: darkred;
+      }
+    }
+  }
+}

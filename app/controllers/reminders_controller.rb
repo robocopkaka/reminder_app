@@ -1,15 +1,16 @@
 class RemindersController < ApplicationController
+  before_action :require_login
   def new
     @reminder = Reminder.new
   end
   
   def create
-    @reminder = Reminder.new(reminder_params)
-    @reminder = parse_schedule(@reminder, reminder_params[:day])
+    @reminder = current_user.reminders.new(reminder_params)
+    parse_schedule(reminder_params[:day])
     if @reminder.save
       redirect_to root_path
     else
-      render :new
+      render "new"
     end
   end
   
@@ -25,10 +26,14 @@ class RemindersController < ApplicationController
     )
   end
   
-  def parse_schedule(obj, schedule)
-    validations = JSON.parse(schedule)["validations"]
-    day = validations["day_of_month"]
-    obj.day = day
-    obj
+  def parse_schedule(schedule)
+    begin
+      validations = JSON.parse(schedule)
+      rule = RecurringSelect.dirty_hash_to_rule(validations)
+      @reminder.day = rule.to_s
+      @reminder.validation_rules = validations
+    rescue JSON::ParserError
+     @reminder.day = ""
+    end
   end
 end

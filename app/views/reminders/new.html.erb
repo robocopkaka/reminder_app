@@ -1,5 +1,33 @@
-<%= form_with(model: @reminder) do |form| %>
-  <%= form.select_recurring :day %>
+<div id="add-reminders">
+  <%= form_for(@reminder, html: { id: "reminders-form" }) do |form| %>
+    <h2 id="add-reminders-header">Add a reminder</h2>
+    <%= render "errors/error_messages", resource: @reminder %>
+    <div id="day_rules">
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
 
-  <%= form.submit "Create reminder" %>
-<% end %>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :day %>
+      <%= form.select_recurring :day,
+                                ["Select a day"] + Reminder::ICECUBE_RULES[:sunday] + Reminder::ICECUBE_RULES[:sunday]+ Reminder::ICECUBE_RULES[:tuesday] + Reminder::ICECUBE_RULES[:wednesday]+ Reminder::ICECUBE_RULES[:thursday] + Reminder::ICECUBE_RULES[:friday]+ Reminder::ICECUBE_RULES[:saturday]
+      %>
+    </div>
+
+    <div class="field">
+      <%= form.label :time %>
+      <%= form.time_field :time, class: "form-control", id: "time" %>
+    </div>
+
+    <div class="submit-field">
+      <%= form.submit "Create reminder", class: "btn" %>
+    </div>
+  <% end %>
+  </div>

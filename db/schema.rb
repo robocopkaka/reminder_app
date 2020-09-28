@@ -16,12 +16,16 @@ ActiveRecord::Schema.define(version: 2020_09_25_035923) do
   enable_extension "plpgsql"
 
   create_table "reminders", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
-    t.time "time"
-    t.string "day"
+    t.time "time", null: false
+    t.string "day", null: false
+    t.json "validation_rules"
+    t.datetime "next_scheduled_at"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,6 +3,8 @@
 # User model
 class User < ApplicationRecord
   include Clearance::User
+  
+  has_many :reminders
 
   # has_secure_password
   
