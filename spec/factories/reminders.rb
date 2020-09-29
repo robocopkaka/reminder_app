@@ -1,8 +1,12 @@
 FactoryBot.define do
   factory :reminder do
-    title { "MyString" }
-    description { "MyText" }
-    time { "2020-09-25 04:59:23" }
-    day { "MyString" }
+    title { Faker::Book.title }
+    description { Faker::Lorem.paragraph(sentence_count: 3) }
+    time { Time.current }
+    day { "Monthly on the first sunday" }
+    validation_rules {
+        {"validations"=>{"day_of_week"=>{"0"=>[1]}}, "rule_type"=>"IceCube::MonthlyRule", "interval"=>1}
+    }
+    user_id { 1 }
   end
 end

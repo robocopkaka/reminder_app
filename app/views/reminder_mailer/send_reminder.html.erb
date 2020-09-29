@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Monthly Reminder</h1>
+<p>
+  <span style="font-weight: bold">Description: </span><%= @description %>
+</p>
+
+<div>
+  You have scheduled this reminder to come in <span style="font-weight: bold"><%= @day %></span>
+  at <span style="font-weight: bold"><%= @time.strftime("%T") %></span>
+</div>
+</body>
+</html>
