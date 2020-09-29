@@ -1,12 +1,15 @@
 <div id="reminders-list">
   <div class="container">
-    <div id="reminders-list-header">
-      <% if @reminders.empty? %>
-        <div id="empty-reminders">You don't have any reminders set</div>
-      <% end %>
+    <div id="reminders-list-header">Your reminders</div>
+    <% if @reminders.empty? %>
+      <div id="empty-reminders">You don't have any reminders set</div>
+    <% end %>
 
-      <div class="row">
-        <%= render @reminders %>
+    <div class="row">
+      <%= render @reminders %>
+
+      <div id="pagination-links">
+        <%= will_paginate @reminders, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
       </div>
     </div>
   </div>

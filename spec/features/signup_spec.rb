@@ -13,8 +13,8 @@ RSpec.describe "signup" do
       click_on "Sign up"
     end
     it "redirects them to the home page" do
-      expect(page).to have_current_path(root_path)
-      expect(page).to have_content("Welcome to my reminders app")
+      expect(page).to have_current_path(reminders_path)
+      expect(page).to have_content("You don't have any reminders set")
     end
     
     it "adds a new user" do

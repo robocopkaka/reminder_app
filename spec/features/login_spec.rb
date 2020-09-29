@@ -14,9 +14,9 @@ RSpec.describe "login", type: :feature do
       fill_in "Password", with: "password"
       click_on "Sign in"
     end
-    it "redirects them to the home page" do
-      expect(page).to have_current_path(root_path)
-      expect(page).to have_content("Welcome to my reminders app")
+    it "redirects them to their reminders page" do
+      expect(page).to have_current_path(reminders_path)
+      expect(page).to have_content("You don't have any reminders set")
     end
   end
 end
