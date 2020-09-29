@@ -8,6 +8,6 @@ class ReminderMailer < ApplicationMailer
     @day = params[:day]
     @time = params[:time]
     
-    mail to: @email, subject: "#{@title}"
+    mail to: @email, subject: "Reminder: #{@title}"
   end
 end

@@ -38,6 +38,9 @@ gem "recurring_select"
 gem "whenever", require: false
 gem "sidekiq"
 
+# faker
+gem "faker"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +65,7 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "simplecov", require: false
+  gem "timecop"
   gem "whenever-test"
 end
 

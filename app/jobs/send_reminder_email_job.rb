@@ -26,7 +26,7 @@ class SendReminderEmailJob < ApplicationJob
     end
     next_time = schedule.occurrences(Time.current + 2.months).first
     combined_time = "#{next_time.strftime("%F")} #{reminder.time.strftime("%T")}"
-    reminder.update(
+    reminder.update!(
       next_scheduled_at: Time.zone.parse(combined_time),
       last_run_at: Time.current,
       scheduled: false
