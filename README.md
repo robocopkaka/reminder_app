@@ -40,12 +40,12 @@
   * You should see that a job has been enqueued
 
 ## Recurring reminder logic
->I added a `scheduled` column to `reminders` which defaults to `false`.
-> When the cron job is run, it looks for reminders whose `scheduled` value is false
-> and then enqueues them using jobs/send_email_reminder_job.rb
+I added a `scheduled` column to `reminders` which defaults to `false`.
+When the cron job is run, it looks for reminders whose `scheduled` value is false
+and then enqueues them using jobs/send_email_reminder_job.rb
 
-> It's enqueued using the time in the `next_scheduled_at` column. When the job
-> for sending email reminders is executed,
-> `next_scheduled_at` is updated with the date and time it should run for the next month 
-> and `scheduled` is set to false so it can be picked up by the cron job on it's next run.
+It's enqueued using the time in the `next_scheduled_at` column. When the job
+for sending email reminders is executed,
+`next_scheduled_at` is updated with the date and time it should run for the next month 
+and `scheduled` is set to false so it can be picked up by the cron job on it's next run.
   
