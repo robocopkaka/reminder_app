@@ -1,5 +1,6 @@
 class RemindersController < ApplicationController
   before_action :require_login
+  before_action :find_reminder, only: :destroy
   def new
     @reminder = Reminder.new
   end
@@ -8,10 +9,24 @@ class RemindersController < ApplicationController
     @reminder = current_user.reminders.new(reminder_params)
     parse_schedule(reminder_params[:day])
     if @reminder.save
-      redirect_to root_path
+      redirect_to reminders_path
     else
       render "new"
     end
+  end
+  
+  def index
+    # using a scope to eager load reminders here
+    @reminders = User
+                   .where(id: current_user.id)
+                   .first
+                   .reminders
+                   .paginate(per_page: 10, page: params[:page])
+  end
+  
+  def destroy
+    @reminder.destroy
+    redirect_to reminders_path
   end
   
   private
@@ -35,5 +50,9 @@ class RemindersController < ApplicationController
     rescue JSON::ParserError
      @reminder.day = ""
     end
+  end
+  
+  def find_reminder
+    @reminder = Reminder.find_by(id: params[:id])
   end
 end

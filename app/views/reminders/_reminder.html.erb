@@ -1,0 +1,18 @@
+<div class="col-6">
+  <div class="reminder-card" id="reminder-<%= "#{reminder.id}" %>">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= reminder.title %></h5>
+        <p class="card-text" id="description"><%= truncate(reminder.description, length: 40) %></p>
+        <p class="card-text reminder-day"><%= reminder.day %></p>
+        <p class="card-text reminder-time"><%= reminder.time.strftime("%T") %></p>
+
+        <%=
+          link_to "Delete Reminder",
+                  reminder_path(reminder),
+                  class: "btn", method: :delete
+        %>
+      </div>
+    </div>
+  </div>
+</div>

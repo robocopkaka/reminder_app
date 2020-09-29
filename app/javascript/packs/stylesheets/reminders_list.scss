@@ -1,0 +1,81 @@
+#reminders-list {
+  max-height: calc(100vh);
+  height: calc(100vh);
+  position: relative;
+
+  #empty-reminders {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: px-to-rem(50px);
+  }
+
+  #reminders-list-header {
+    padding-top: px-to-rem(30px);
+    text-align: center;
+    font-weight: bold;
+    font-size: px-to-rem(30px);
+  }
+
+  .container {
+    padding-bottom: px-to-rem(40px);
+    .row {
+      padding: px-to-rem(20px) 0;
+      .reminder-card {
+        padding: px-to-rem(20px) 0;
+        .card{
+          max-height: 65vh;
+          .card-body {
+            height: auto;
+            max-height: 50vh;
+            line-height: 1rem;
+            .card-title {
+              font-weight: bold;
+              text-align: center;
+            }
+
+            #description {
+              font-weight: lighter;
+            }
+
+            .category-header {
+              font-weight: bold;
+            }
+
+            .reminder-time {
+              font-size: px-to-rem(15px);
+              font-weight: 300;
+            }
+            .btn {
+              background-color: #4A2545;
+              color: #FFF;
+            }
+          }
+        }
+      }
+
+      #pagination-links {
+        margin: 0 auto;
+        .pagination {
+          .page-item {
+            .page-link {
+              color: #4A2545;
+            }
+          }
+          .page-item.active {
+            .page-link {
+              background-color: #4A2545;
+              color: #F7F7F7;
+            }
+          }
+          .page-item.disabled {
+            .page-link {
+              color: #6c757d;
+            }
+          }
+        }
+      }
+    }
+  }
+}

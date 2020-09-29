@@ -5,6 +5,7 @@ class Reminder < ApplicationRecord
   
   before_save :set_next_scheduled_at
   
+  default_scope { order(id: :desc) }
   def set_next_scheduled_at
     ice_cube_rule = IceCube::Rule.from_hash(validation_rules)
     schedule = IceCube::Schedule.new(now = Time.now) do |s|

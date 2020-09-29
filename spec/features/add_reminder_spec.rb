@@ -5,10 +5,7 @@ require "rails_helper"
 RSpec.describe "add_reminder", type: :feature do
   let!(:user) { create(:user) }
   before do
-    visit sign_in_path
-    fill_in "Email", with: "robocopkaka@gmail.com"
-    fill_in "Password", with: "password"
-    click_on "Sign in"
+    sign_in(user)
   end
   context "when valid parameters are supplied" do
     let!(:reminders_count) { Reminder.count }
@@ -22,8 +19,8 @@ RSpec.describe "add_reminder", type: :feature do
       click_on "Create reminder"
     end
     it "redirects to the home page" do
-      expect(page).to have_current_path(root_path)
-      expect(page).to have_content("Welcome to my reminders app")
+      expect(page).to have_current_path(reminders_path)
+      expect(page).to have_content("Monthly on the 1st Sunday")
     end
     
     it "creates a reminder" do
