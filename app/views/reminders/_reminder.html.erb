@@ -1,0 +1,12 @@
+<div class="col-6">
+  <div id="reminder-card">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= reminder.title %></h5>
+        <p class="card-text" id="description"><%= truncate(reminder.description, length: 40) %></p>
+        <p class="card-text reminder-day"><%= reminder.day %></p>
+        <p class="card-text reminder-time"><%= reminder.time.strftime("%T") %></p>
+      </div>
+    </div>
+  </div>
+</div>

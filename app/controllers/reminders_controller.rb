@@ -14,6 +14,10 @@ class RemindersController < ApplicationController
     end
   end
   
+  def index
+    @reminders = current_user.reminders
+  end
+  
   private
   
   def reminder_params

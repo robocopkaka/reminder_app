@@ -1,0 +1,13 @@
+<div id="reminders-list">
+  <div class="container">
+    <div id="reminders-list-header">
+      <% if @reminders.empty? %>
+        <div id="empty-reminders">You don't have any reminders set</div>
+      <% end %>
+
+      <div class="row">
+        <%= render @reminders %>
+      </div>
+    </div>
+  </div>
+</div>
