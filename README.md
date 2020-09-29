@@ -11,6 +11,8 @@
 
 ## Installation Steps
 * After copying this project onto your system, `cd` into this folder
+* Run `bundle install` to install gems
+* Run `yarn` to install JavaScript packages
 * Run `rails credentials:edit`
 * Add a key  - `db_user` and a value representing your database username
 * Add a key - `db_password` and a value representing your database password
