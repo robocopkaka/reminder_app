@@ -1,0 +1,35 @@
+#home {
+  max-height: calc(100vh - 4.375rem);
+  height: calc(100vh - 4.375rem);
+  padding-top: px-to-rem(20px);
+  background-image: url("~images/calendar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  #head-section {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: white;
+
+    #headers {
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+      height: px-to-rem(150px);
+
+      #site-header {
+        font-size: px-to-rem(30px);
+        font-weight: bold;
+        color: black;
+      }
+
+      #site-description {
+        font-weight: 300;
+        font-size: px-to-rem(25px);
+        color: black;
+      }
+    }
+  }
+}

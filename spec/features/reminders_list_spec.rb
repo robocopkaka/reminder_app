@@ -26,7 +26,7 @@ RSpec.describe "reminders page", type: :feature do
     end
     
     it "should have delete buttons for card" do
-      buttons_count = all(".btn").count
+      buttons_count = all("#delete-button").count
       expect(buttons_count).to eq 10
     end
     

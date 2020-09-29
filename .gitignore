@@ -38,3 +38,5 @@ yarn-debug.log*
 .idea/
 .generators
 /spec/examples.txt
+
+/coverage

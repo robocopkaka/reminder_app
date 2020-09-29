@@ -1,0 +1,15 @@
+<div class="buttons">
+  <% if signed_in? %>
+    <%= link_to sign_out_path, method: :delete do  %>
+      <button class="btn btn-light">Logout</button>
+    <% end %>
+  <% else %>
+    <%= link_to sign_in_path do %>
+      <button class="btn btn-light">Login</button>
+    <% end %>
+
+    <%= link_to sign_up_path do %>
+      <button class="btn btn-light">Signup</button>
+    <% end %>
+  <% end%>
+</div>

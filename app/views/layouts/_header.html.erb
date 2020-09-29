@@ -1,0 +1,26 @@
+<div id="navbar-section">
+  <nav class="navbar navbar-expand-lg">
+    <%= link_to "Reminders", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+
+        <% if signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Add Reminder", new_reminder_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "View Reminders", reminders_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+      <%= render "layouts/authentication_buttons" %>
+    </div>
+  </nav>
+</div>

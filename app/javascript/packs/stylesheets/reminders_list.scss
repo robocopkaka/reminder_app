@@ -1,6 +1,6 @@
 #reminders-list {
-  max-height: calc(100vh);
-  height: calc(100vh);
+  max-height: calc(100vh - 4.375rem);
+  height: calc(100vh - 4.375rem);
   position: relative;
 
   #empty-reminders {
